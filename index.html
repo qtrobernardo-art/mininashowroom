@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minina Showroom | Moda Femenina</title>
+    <!-- Tailwind CSS para el diseño moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos para Redes y WhatsApp -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Fuente elegante para moda -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased relative">
 
+    <!-- Cintillo de Envíos (El gancho de ventas) -->
+    <div class="bg-pink-500 text-white text-center text-xs md:text-sm py-2 font-semibold tracking-widest uppercase shadow-sm">
+        🚚 Envíos a todo el país SIN COSTO
+    </div>
+
+    <!-- Navegación -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <h1 class="font-extrabold text-2xl tracking-tighter">MININA</h1>
+                </div>
+                <div class="flex space-x-5">
+                    <a href="https://www.instagram.com/minina_showroom" target="_blank" class="text-gray-600 hover:text-pink-500 transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-black transition"><i class="fa-brands fa-tiktok text-2xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portada (Hero Section) -->
+    <header class="relative bg-black h-[60vh] flex items-center justify-center overflow-hidden">
+        <!-- Acá luego ponemos una foto real del showroom o de Mirna -->
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Fondo Moda">
+        <div class="relative z-10 text-center px-4">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4 uppercase tracking-wider drop-shadow-lg">Moda en Tendencia</h2>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 font-light drop-shadow-md">Desde Pampa del Indio para vos.</p>
+            <a href="#coleccion" class="bg-white text-black font-bold py-3 px-8 rounded-full shadow-lg hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:scale-105 inline-block">VER COLECCIÓN</a>
+        </div>
+    </header>
+
+    <!-- Catálogo de Ropa -->
+    <section id="coleccion" class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <h3 class="text-2xl font-bold text-center mb-12 uppercase tracking-wide">Ingresos de la Semana</h3>
+        
+        <!-- Grilla de productos (Tipo feed de IG) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            
+            <!-- Prenda 1 -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                <div class="relative h-72 overflow-hidden bg-gray-100">
+                    <!-- Acá van las fotos reales de la ropa -->
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&auto=format&fit=crop" alt="Ropa Minina" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-4 text-center">
+                    <h4 class="font-bold text-md mb-1">Body Animal Print</h4>
+                    <p class="text-gray-500 text-xs mb-4">Talles S al L</p>
+                    <!-- Link de Mercado Pago -->
+                    <a href="#" class="block w-full bg-black text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-pink-500 transition-colors">Lo quiero</a>
+                </div>
+            </div>
+
+            <!-- Prenda 2 -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                <div class="relative h-72 overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=500&auto=format&fit=crop" alt="Ropa Minina" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="p-4 text-center">
+                    <h4 class="font-bold text-md mb-1">Chaleco Tendencia</h4>
+                    <p class="text-gray-500 text-xs mb-4">Colores neutros</p>
+                    <a href="#" class="block w-full bg-black text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-pink-500 transition-colors">Lo quiero</a>
+                </div>
+            </div>
+
+            <!-- Podés copiar y pegar el bloque de arriba para sumar más ropa -->
+
+        </div>
+    </section>
+
+    <!-- Botón Flotante de WhatsApp sacado del perfil -->
+    <a href="https://wa.me/543725441073" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-transform z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer minimalista -->
+    <footer class="bg-black text-white py-10 text-center">
+        <p class="font-bold text-2xl tracking-widest mb-3">MININA</p>
+        <p class="text-gray-400 text-sm mb-4">Moda femenina en tendencia 💖</p>
+        <p class="text-gray-500 text-xs">© 2026 Minina Showroom. Pampa del Indio, Chaco.</p>
+    </footer>
+
+</body>
+</html>
