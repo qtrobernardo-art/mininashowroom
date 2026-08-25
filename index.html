@@ -3,100 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minina Showroom | Moda Femenina</title>
-    <!-- Tailwind CSS para el diseño moderno -->
+    <title>Minina Showroom | Boutique Exclusiva</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Iconos para Redes y WhatsApp -->
+    <!-- FontAwesome para Iconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Fuente elegante para moda -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Fuentes: Playfair (Elegancia) y Montserrat (Modernidad) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, .fuente-elegante { font-family: 'Playfair Display', serif; }
         html { scroll-behavior: smooth; }
+        /* Animación del cintillo infinito */
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+        .animate-marquee { display: inline-block; white-space: nowrap; animation: marquee 20s linear infinite; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased relative">
+<body class="bg-white text-black antialiased selection:bg-black selection:text-white">
 
-    <!-- Cintillo de Envíos (El gancho de ventas) -->
-    <div class="bg-pink-500 text-white text-center text-xs md:text-sm py-2 font-semibold tracking-widest uppercase shadow-sm">
-        🚚 Envíos a todo el país SIN COSTO
+    <!-- Cintillo en movimiento (Súper llamativo) -->
+    <div class="bg-black text-white text-xs tracking-[0.2em] py-3 font-semibold uppercase overflow-hidden whitespace-nowrap relative">
+        <div class="animate-marquee inline-block">
+            <span class="mx-4">🖤 ENVÍOS A TODO EL PAÍS SIN COSTO</span>
+            <span class="mx-4">|</span>
+            <span class="mx-4">📍 LUIS PESSANO 236, PAMPA DEL INDIO</span>
+            <span class="mx-4">|</span>
+            <span class="mx-4">✨ ATENCIÓN VIP POR WHATSAPP</span>
+            <span class="mx-4">|</span>
+            <span class="mx-4">🖤 ENVÍOS A TODO EL PAÍS SIN COSTO</span>
+            <span class="mx-4">|</span>
+            <span class="mx-4">📍 LUIS PESSANO 236, PAMPA DEL INDIO</span>
+        </div>
     </div>
 
     <!-- Navegación -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <h1 class="font-extrabold text-2xl tracking-tighter">MININA</h1>
-                </div>
-                <div class="flex space-x-5">
-                    <a href="https://www.instagram.com/minina_showroom" target="_blank" class="text-gray-600 hover:text-pink-500 transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
-                    <a href="#" class="text-gray-600 hover:text-black transition"><i class="fa-brands fa-tiktok text-2xl"></i></a>
-                </div>
+    <nav class="bg-white/95 backdrop-blur-md border-b border-zinc-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+            <div class="flex-shrink-0 flex items-center justify-center">
+                <!-- Título como logo -->
+                <h1 class="text-4xl font-black tracking-widest uppercase">Minina</h1>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#talles" class="hidden md:inline-block text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-black transition">Guía de Talles</a>
+                <a href="https://www.instagram.com/minina_showroom" target="_blank" class="text-black hover:scale-125 transition transform text-2xl"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-black hover:scale-125 transition transform text-2xl"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/543725441073" target="_blank" class="hidden sm:inline-block bg-black text-white text-xs font-bold uppercase tracking-widest py-3 px-6 rounded-full hover:bg-zinc-800 transition shadow-lg">Asesoramiento VIP</a>
             </div>
         </div>
     </nav>
 
-    <!-- Portada (Hero Section) -->
-    <header class="relative bg-black h-[60vh] flex items-center justify-center overflow-hidden">
-        <!-- Acá luego ponemos una foto real del showroom o de Mirna -->
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Fondo Moda">
-        <div class="relative z-10 text-center px-4">
-            <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4 uppercase tracking-wider drop-shadow-lg">Moda en Tendencia</h2>
-            <p class="text-lg md:text-xl text-gray-200 mb-8 font-light drop-shadow-md">Desde Pampa del Indio para vos.</p>
-            <a href="#coleccion" class="bg-white text-black font-bold py-3 px-8 rounded-full shadow-lg hover:bg-pink-500 hover:text-white transition-all duration-300 transform hover:scale-105 inline-block">VER COLECCIÓN</a>
+    <!-- Portada Principal (Efecto WOW) -->
+    <header class="relative h-[80vh] flex items-center justify-center bg-zinc-900 overflow-hidden group">
+        <!-- La imagen de fondo pasa a color al poner el mouse -->
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-1000" alt="Moda NY">
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <span class="text-xs uppercase tracking-[0.4em] text-white font-bold block mb-4 drop-shadow-md">Exclusividad & Estilo</span>
+            <h2 class="text-5xl md:text-8xl font-black text-white mb-6 tracking-tight drop-shadow-2xl">MININA</h2>
+            <p class="text-white text-sm md:text-lg font-medium tracking-widest mb-10 max-w-2xl mx-auto drop-shadow-md">TOCÁ EL DISEÑO, ELEGÍ TU COLOR Y PEDILO DIRECTO A NUESTRO LOCAL.</p>
+            <a href="#catalogo" class="bg-white text-black font-extrabold text-xs uppercase tracking-[0.2em] py-5 px-12 rounded-full hover:bg-black hover:text-white transition-all duration-300 shadow-2xl inline-block border-2 border-transparent hover:border-white">Ver Colección</a>
         </div>
     </header>
 
-    <!-- Catálogo de Ropa -->
-    <section id="coleccion" class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <h3 class="text-2xl font-bold text-center mb-12 uppercase tracking-wide">Ingresos de la Semana</h3>
-        
-        <!-- Grilla de productos (Tipo feed de IG) -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+    <!-- Catálogo Ultra Interactivo -->
+    <section id="catalogo" class="max-w-7xl mx-auto py-24 px-6">
+        <div class="text-center mb-16 border-b border-zinc-200 pb-8">
+            <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Temporada Actual</h3>
+            <p class="text-sm text-zinc-500 uppercase tracking-widest">Descubrí las variantes y hacé tu pedido personalizado.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             
-            <!-- Prenda 1 -->
-            <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
-                <div class="relative h-72 overflow-hidden bg-gray-100">
-                    <!-- Acá van las fotos reales de la ropa -->
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&auto=format&fit=crop" alt="Ropa Minina" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <!-- Item 1 -->
+            <div class="group flex flex-col justify-between">
+                <div>
+                    <!-- Foto que pasa a color en hover -->
+                    <div class="relative h-[450px] overflow-hidden bg-zinc-100 mb-6">
+                        <img id="img-item1" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700" alt="Body Animal Print">
+                        <div class="absolute top-4 left-4 bg-black text-white text-[10px] uppercase tracking-widest font-bold py-1.5 px-4 rounded-full">Exclusivo</div>
+                    </div>
+                    <h4 class="fuente-elegante font-bold text-2xl mb-1 tracking-tight">Body Animal Print</h4>
+                    
+                    <div class="mt-4 mb-6">
+                        <p class="text-xs uppercase tracking-widest text-zinc-400 font-bold mb-3">Color / Variante:</p>
+                        <div class="flex space-x-3">
+                            <button onclick="cambiarColor('item1', 'Animal Print Clásico', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop')" class="w-10 h-10 rounded-full bg-zinc-800 border-2 border-black hover:scale-110 transition shadow-md" title="Clásico"></button>
+                            <button onclick="cambiarColor('item1', 'Negro Puro', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop')" class="w-10 h-10 rounded-full bg-black border-2 border-transparent hover:scale-110 transition shadow-md" title="Negro"></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-4 text-center">
-                    <h4 class="font-bold text-md mb-1">Body Animal Print</h4>
-                    <p class="text-gray-500 text-xs mb-4">Talles S al L</p>
-                    <!-- Link de Mercado Pago -->
-                    <a href="#" class="block w-full bg-black text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-pink-500 transition-colors">Lo quiero</a>
+                <div>
+                    <p id="label-item1" class="text-xs font-semibold text-zinc-500 mb-4 uppercase tracking-wider">Elegiste: <span class="text-black font-black">Animal Print Clásico</span></p>
+                    <a id="btn-item1" href="https://wa.me/543725441073?text=Hola%20Mirna!%20Me%20interesa%20el%20Body%20Animal%20Print%20(Color:%20Animal%20Print%20Clásico).%20¿Me%20asesorás%20con%20el%20talle?" target="_blank" class="flex items-center justify-center w-full bg-black text-white text-xs uppercase font-bold tracking-[0.2em] py-4 hover:bg-zinc-800 transition shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Consultar Stock
+                    </a>
                 </div>
             </div>
 
-            <!-- Prenda 2 -->
-            <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
-                <div class="relative h-72 overflow-hidden bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=500&auto=format&fit=crop" alt="Ropa Minina" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <!-- Item 2 -->
+            <div class="group flex flex-col justify-between">
+                <div>
+                    <div class="relative h-[450px] overflow-hidden bg-zinc-100 mb-6">
+                        <img id="img-item2" src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700" alt="Chaleco Sastrero">
+                        <div class="absolute top-4 left-4 bg-black text-white text-[10px] uppercase tracking-widest font-bold py-1.5 px-4 rounded-full">Tendencia</div>
+                    </div>
+                    <h4 class="fuente-elegante font-bold text-2xl mb-1 tracking-tight">Chaleco Sastrero</h4>
+                    
+                    <div class="mt-4 mb-6">
+                        <p class="text-xs uppercase tracking-widest text-zinc-400 font-bold mb-3">Color / Variante:</p>
+                        <div class="flex space-x-3">
+                            <button onclick="cambiarColor('item2', 'Gris Plomo', 'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&auto=format&fit=crop')" class="w-10 h-10 rounded-full bg-zinc-500 border-2 border-black hover:scale-110 transition shadow-md" title="Gris"></button>
+                            <button onclick="cambiarColor('item2', 'Negro Noche', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop')" class="w-10 h-10 rounded-full bg-black border-2 border-transparent hover:scale-110 transition shadow-md" title="Negro"></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-4 text-center">
-                    <h4 class="font-bold text-md mb-1">Chaleco Tendencia</h4>
-                    <p class="text-gray-500 text-xs mb-4">Colores neutros</p>
-                    <a href="#" class="block w-full bg-black text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-pink-500 transition-colors">Lo quiero</a>
+                <div>
+                    <p id="label-item2" class="text-xs font-semibold text-zinc-500 mb-4 uppercase tracking-wider">Elegiste: <span class="text-black font-black">Gris Plomo</span></p>
+                    <a id="btn-item2" href="https://wa.me/543725441073?text=Hola%20Mirna!%20Me%20interesa%20el%20Chaleco%20Sastrero%20(Color:%20Gris%20Plomo).%20¿Me%20asesorás%20con%20el%20talle?" target="_blank" class="flex items-center justify-center w-full bg-black text-white text-xs uppercase font-bold tracking-[0.2em] py-4 hover:bg-zinc-800 transition shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Consultar Stock
+                    </a>
                 </div>
             </div>
 
-            <!-- Podés copiar y pegar el bloque de arriba para sumar más ropa -->
+            <!-- Item 3 -->
+            <div class="group flex flex-col justify-between">
+                <div>
+                    <div class="relative h-[450px] overflow-hidden bg-zinc-100 mb-6">
+                        <img id="img-item3" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700" alt="Conjunto Chic">
+                        <div class="absolute top-4 left-4 bg-black text-white text-[10px] uppercase tracking-widest font-bold py-1.5 px-4 rounded-full">Must Have</div>
+                    </div>
+                    <h4 class="fuente-elegante font-bold text-2xl mb-1 tracking-tight">Conjunto Urbano</h4>
+                    
+                    <div class="mt-4 mb-6">
+                        <p class="text-xs uppercase tracking-widest text-zinc-400 font-bold mb-3">Color / Variante:</p>
+                        <div class="flex space-x-3">
+                            <button onclick="cambiarColor('item3', 'Total Black', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop')" class="w-10 h-10 rounded-full bg-black border-2 border-black hover:scale-110 transition shadow-md" title="Negro"></button>
+                            <button onclick="cambiarColor('item3', 'Blanco Hielo', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop')" class="w-10 h-10 rounded-full bg-zinc-200 border-2 border-transparent hover:scale-110 transition shadow-md" title="Blanco"></button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p id="label-item3" class="text-xs font-semibold text-zinc-500 mb-4 uppercase tracking-wider">Elegiste: <span class="text-black font-black">Total Black</span></p>
+                    <a id="btn-item3" href="https://wa.me/543725441073?text=Hola%20Mirna!%20Me%20interesa%20el%20Conjunto%20Urbano%20(Color:%20Total%20Black).%20¿Me%20asesorás%20con%20el%20talle?" target="_blank" class="flex items-center justify-center w-full bg-black text-white text-xs uppercase font-bold tracking-[0.2em] py-4 hover:bg-zinc-800 transition shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Consultar Stock
+                    </a>
+                </div>
+            </div>
 
         </div>
     </section>
 
-    <!-- Botón Flotante de WhatsApp sacado del perfil -->
-    <a href="https://wa.me/543725441073" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 hover:scale-110 transition-transform z-50">
+    <!-- Guía de Talles Monumental -->
+    <section id="talles" class="bg-black text-white py-24">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <span class="text-xs uppercase tracking-[0.3em] text-zinc-400 font-bold block mb-4">Cambiador Digital</span>
+            <h3 class="fuente-elegante text-4xl md:text-6xl font-black mb-8">Encontrá tu Calce Perfecto</h3>
+            <p class="text-zinc-300 text-sm md:text-base font-light max-w-2xl mx-auto mb-16">Si tenés dudas específicas sobre cómo calza una prenda, tocanos el botón de WhatsApp y te asesoramos al instante con medidas exactas.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="border border-zinc-800 p-10 hover:border-white transition duration-300 group">
+                    <span class="fuente-elegante block font-black text-6xl mb-4 text-zinc-700 group-hover:text-white transition">S</span>
+                    <span class="text-sm font-bold uppercase tracking-widest block mb-2">Talle 36 - 38</span>
+                    <span class="text-xs text-zinc-400">Contorno Fino / Ajustado</span>
+                </div>
+                <div class="border border-zinc-800 p-10 hover:border-white transition duration-300 group bg-zinc-900">
+                    <span class="fuente-elegante block font-black text-6xl mb-4 text-white">M</span>
+                    <span class="text-sm font-bold uppercase tracking-widest block mb-2">Talle 40 - 42</span>
+                    <span class="text-xs text-zinc-400">Calce Estándar / Regular</span>
+                </div>
+                <div class="border border-zinc-800 p-10 hover:border-white transition duration-300 group">
+                    <span class="fuente-elegante block font-black text-6xl mb-4 text-zinc-700 group-hover:text-white transition">L</span>
+                    <span class="text-sm font-bold uppercase tracking-widest block mb-2">Talle 44 - 46</span>
+                    <span class="text-xs text-zinc-400">Confort / Amplio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Datos del Negocio a nivel Revista de Moda -->
+    <section class="bg-white py-24 border-t border-zinc-200">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left items-center">
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="fuente-elegante text-4xl font-black mb-4 uppercase">Minina</h4>
+                <p class="text-zinc-500 text-sm leading-loose mb-6">Vestimos a la mujer moderna. Elegancia, comodidad y las últimas tendencias directas a tu placard con envíos sin cargo.</p>
+            </div>
+            <div class="border-y md:border-y-0 md:border-x border-zinc-200 py-8 md:py-0 md:px-12 flex flex-col items-center md:items-start">
+                <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-black">Visitanos / Contactanos</h4>
+                <ul class="space-y-4 text-sm text-zinc-600">
+                    <li class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-location-dot w-6 text-black"></i> Luis Pessano 236, Pampa del Indio</li>
+                    <li class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-phone w-6 text-black"></i> 3725 441073</li>
+                    <li class="flex items-center justify-center md:justify-start"><i class="fa-solid fa-user w-6 text-black"></i> Minina Martinez</li>
+                </ul>
+            </div>
+            <div class="flex flex-col items-center md:items-start md:pl-6">
+                <h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-6 text-black">Comunidad</h4>
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/minina_showroom" target="_blank" class="w-14 h-14 border-2 border-black rounded-full flex items-center justify-center hover:bg-black hover:text-white transition transform hover:scale-110 text-xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-14 h-14 border-2 border-black rounded-full flex items-center justify-center hover:bg-black hover:text-white transition transform hover:scale-110 text-xl"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/543725441073" target="_blank" class="w-14 h-14 border-2 border-black rounded-full flex items-center justify-center hover:bg-black hover:text-white transition transform hover:scale-110 text-xl"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón Flotante de WhatsApp Súper Destacado -->
+    <a href="https://wa.me/543725441073?text=Hola%20Mirna!%20Vengo%20de%20la%20página%20web%20y%20quiero%20hacerte%20una%20consulta." target="_blank" class="fixed bottom-6 right-6 bg-black text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:bg-zinc-800 hover:scale-110 transition-transform z-50">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- Footer minimalista -->
-    <footer class="bg-black text-white py-10 text-center">
-        <p class="font-bold text-2xl tracking-widest mb-3">MININA</p>
-        <p class="text-gray-400 text-sm mb-4">Moda femenina en tendencia 💖</p>
-        <p class="text-gray-500 text-xs">© 2026 Minina Showroom. Pampa del Indio, Chaco.</p>
+    <footer class="bg-black text-white py-12 text-center text-[10px] tracking-[0.3em] uppercase">
+        <p>© 2026 Minina Showroom. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script súper interactivo para los colores -->
+    <script>
+        function cambiarColor(itemId, nombreColor, urlImagen) {
+            const imgEl = document.getElementById('img-' + itemId);
+            // Cambiar imagen
+            imgEl.src = urlImagen;
+            // Forzar que se vea a color al seleccionarlo
+            imgEl.classList.remove('grayscale');
+            
+            // Actualizar el texto
+            document.getElementById('label-' + itemId).innerHTML = 'Elegiste: <span class="text-black font-black">' + nombreColor + '</span>';
+            
+            // Lógica para enviar el WhatsApp exacto
+            let nombreProducto = "Prenda";
+            if(itemId === 'item1') nombreProducto = "Body Animal Print";
+            if(itemId === 'item2') nombreProducto = "Chaleco Sastrero";
+            if(itemId === 'item3') nombreProducto = "Conjunto Urbano";
+
+            let mensaje = encodeURIComponent("Hola Mirna! Me interesa el " + nombreProducto + " (Color: " + nombreColor + "). ¿Me asesorás con el talle?");
+            document.getElementById('btn-' + itemId).href = "https://wa.me/543725441073?text=" + mensaje;
+        }
+    </script>
 
 </body>
 </html>
