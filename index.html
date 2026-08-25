@@ -10,7 +10,6 @@
     <style>
         body { font-family: 'Montserrat', sans-serif; }
         .fuente-logo { font-family: 'Playfair Display', serif; }
-        /* Ocultar scrollbar para el modal del carrito */
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -21,13 +20,13 @@
         Hasta 3 cuotas sin interés | Envíos a todo el país
     </div>
 
-    <!-- Navegación Estilo 47 Street -->
+    <!-- Navegación -->
     <nav class="border-b border-zinc-200 sticky top-0 bg-white z-40">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <!-- Iconos Izquierda (Redes) -->
+            <!-- Iconos Izquierda -->
             <div class="hidden md:flex space-x-4">
-                <a href="#" class="text-xl hover:text-zinc-500 transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-xl hover:text-zinc-500 transition"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/minina_showroom" target="_blank" class="text-xl hover:text-pink-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-xl hover:text-pink-600 transition"><i class="fa-brands fa-tiktok"></i></a>
             </div>
             
             <!-- Logo Centro -->
@@ -35,29 +34,29 @@
                 <h1 class="fuente-logo text-4xl font-black tracking-widest uppercase">Minina</h1>
             </div>
 
-            <!-- Iconos Derecha (Carrito) -->
+            <!-- Carrito con Burbuja Fucsia -->
             <div class="flex space-x-6 items-center">
-                <button onclick="toggleCarrito()" class="relative text-2xl hover:text-zinc-500 transition">
+                <button onclick="toggleCarrito()" class="relative text-2xl hover:text-pink-600 transition transform hover:scale-110">
                     <i class="fa-solid fa-bag-shopping"></i>
-                    <span id="contador-carrito" class="absolute -top-2 -right-2 bg-black text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    <span id="contador-carrito" class="absolute -top-2 -right-2 bg-pink-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
                 </button>
             </div>
         </div>
-        <!-- Submenú de Categorías -->
+        <!-- Submenú con Acento -->
         <div class="hidden md:flex justify-center space-x-8 py-3 text-xs font-bold uppercase tracking-widest text-zinc-600 border-t border-zinc-100">
-            <a href="#" class="hover:text-black">Nueva Colección</a>
-            <a href="#" class="hover:text-black">Looks</a>
-            <a href="#" class="hover:text-black">Denim</a>
-            <a href="#" class="text-red-600 hover:text-red-800">Sale Final</a>
+            <a href="#" class="hover:text-black transition">Nueva Colección</a>
+            <a href="#" class="hover:text-black transition">Looks</a>
+            <a href="#" class="hover:text-black transition">Denim</a>
+            <a href="#" class="text-pink-600 hover:text-pink-700 font-black flex items-center"><i class="fa-solid fa-fire mr-1"></i> Sale Final</a>
         </div>
     </nav>
 
-    <!-- Modal del Carrito (Oculto por defecto) -->
+    <!-- Modal del Carrito -->
     <div id="modal-carrito" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden justify-end">
         <div class="bg-white w-full max-w-md h-full shadow-2xl p-6 flex flex-col">
             <div class="flex justify-between items-center border-b pb-4 mb-4">
                 <h2 class="font-black text-xl uppercase tracking-wider">Tu Bolsa</h2>
-                <button onclick="toggleCarrito()" class="text-2xl hover:text-zinc-500"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleCarrito()" class="text-2xl hover:text-pink-600 transition"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
             <div id="items-carrito" class="flex-1 overflow-y-auto no-scrollbar space-y-4">
@@ -65,18 +64,18 @@
             </div>
 
             <div class="border-t pt-4 mt-4">
-                <button onclick="enviarPedido()" class="w-full bg-black text-white py-4 uppercase font-bold tracking-widest text-xs hover:bg-zinc-800 transition shadow-lg">
-                    Finalizar Compra <i class="fa-brands fa-whatsapp ml-2"></i>
+                <button onclick="enviarPedido()" class="w-full bg-black text-white py-4 uppercase font-bold tracking-widest text-xs hover:bg-pink-600 transition duration-300 shadow-lg flex justify-center items-center">
+                    Finalizar por WhatsApp <i class="fa-brands fa-whatsapp ml-2 text-lg"></i>
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Banner Principal -->
-    <header class="relative h-[60vh] flex items-center justify-center bg-zinc-100">
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-80 grayscale" alt="Campaña">
+    <header class="relative h-[60vh] flex items-center justify-center bg-zinc-100 group">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 transition duration-700" alt="Campaña">
         <div class="relative z-10 text-center">
-            <h2 class="fuente-logo text-5xl md:text-7xl font-black text-black bg-white/80 px-8 py-4 uppercase tracking-tighter mix-blend-screen">Nueva Colección</h2>
+            <h2 class="fuente-logo text-5xl md:text-7xl font-black text-black bg-white/90 px-8 py-4 uppercase tracking-tighter shadow-2xl">Nueva Colección</h2>
         </div>
     </header>
 
@@ -93,7 +92,7 @@
                 </div>
                 <h4 class="font-bold text-sm uppercase tracking-wider mb-1">Body Animal Print</h4>
                 <p class="text-zinc-500 text-xs mb-3">Talle Único</p>
-                <button onclick="agregarAlCarrito('Body Animal Print')" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition">
+                <button onclick="agregarAlCarrito('Body Animal Print', this)" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-pink-600 hover:border-pink-600 hover:text-white transition duration-300">
                     Agregar a la bolsa
                 </button>
             </div>
@@ -105,7 +104,7 @@
                 </div>
                 <h4 class="font-bold text-sm uppercase tracking-wider mb-1">Chaleco Sastrero Gris</h4>
                 <p class="text-zinc-500 text-xs mb-3">Talles S, M, L</p>
-                <button onclick="agregarAlCarrito('Chaleco Sastrero Gris')" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition">
+                <button onclick="agregarAlCarrito('Chaleco Sastrero Gris', this)" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-pink-600 hover:border-pink-600 hover:text-white transition duration-300">
                     Agregar a la bolsa
                 </button>
             </div>
@@ -117,7 +116,7 @@
                 </div>
                 <h4 class="font-bold text-sm uppercase tracking-wider mb-1">Pantalón Wide Leg</h4>
                 <p class="text-zinc-500 text-xs mb-3">Color Negro</p>
-                <button onclick="agregarAlCarrito('Pantalón Wide Leg Negro')" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition">
+                <button onclick="agregarAlCarrito('Pantalón Wide Leg Negro', this)" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-pink-600 hover:border-pink-600 hover:text-white transition duration-300">
                     Agregar a la bolsa
                 </button>
             </div>
@@ -129,7 +128,7 @@
                 </div>
                 <h4 class="font-bold text-sm uppercase tracking-wider mb-1">Campera Oversize</h4>
                 <p class="text-zinc-500 text-xs mb-3">Edición Limitada</p>
-                <button onclick="agregarAlCarrito('Campera Oversize')" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition">
+                <button onclick="agregarAlCarrito('Campera Oversize', this)" class="w-full border-2 border-black bg-white text-black py-2 text-xs font-bold uppercase tracking-widest hover:bg-pink-600 hover:border-pink-600 hover:text-white transition duration-300">
                     Agregar a la bolsa
                 </button>
             </div>
@@ -147,21 +146,26 @@
             </div>
             <div>
                 <h4 class="font-black text-sm uppercase tracking-widest mb-4">Ayuda</h4>
-                <p class="text-xs text-zinc-600 mb-2"><a href="#" class="hover:text-black">Cambios y devoluciones</a></p>
-                <p class="text-xs text-zinc-600"><a href="#" class="hover:text-black">Preguntas frecuentes</a></p>
+                <p class="text-xs text-zinc-600 mb-2"><a href="#" class="hover:text-pink-600 transition">Cambios y devoluciones</a></p>
+                <p class="text-xs text-zinc-600"><a href="#" class="hover:text-pink-600 transition">Preguntas frecuentes</a></p>
             </div>
             <div>
                 <h4 class="font-black text-sm uppercase tracking-widest mb-4">Seguinos</h4>
                 <div class="flex justify-center md:justify-start space-x-4 text-xl">
-                    <a href="https://www.instagram.com/minina_showroom" class="hover:text-zinc-500"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-zinc-500"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/minina_showroom" class="hover:text-pink-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-pink-600 transition"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
         <div class="text-center text-[10px] text-zinc-400 uppercase tracking-widest">
-            © 2026 Minina Showroom. Diseñado para destacar.
+            © 2026 Minina Showroom.
         </div>
     </footer>
+
+    <!-- Botón Flotante de WhatsApp (El toque funcional de color) -->
+    <a href="https://wa.me/543725441073?text=Hola%20Mirna!%20Vengo%20de%20la%20página%20web%20y%20tengo%20una%20consulta." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-14 h-14 flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-40">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- Script del Motor del Carrito -->
     <script>
@@ -179,20 +183,20 @@
             }
         }
 
-        function agregarAlCarrito(producto) {
+        function agregarAlCarrito(producto, btnElement) {
             carrito.push(producto);
             document.getElementById('contador-carrito').innerText = carrito.length;
             
-            // Efecto visual rápido para confirmar
-            const btn = event.target;
-            const textoOriginal = btn.innerText;
-            btn.innerText = "¡Agregado!";
-            btn.classList.replace('bg-white', 'bg-black');
-            btn.classList.replace('text-black', 'text-white');
+            // Efecto visual rápido
+            const textoOriginal = btnElement.innerText;
+            btnElement.innerText = "¡Agregado!";
+            btnElement.classList.replace('bg-white', 'bg-black');
+            btnElement.classList.replace('text-black', 'text-white');
+            
             setTimeout(() => {
-                btn.innerText = textoOriginal;
-                btn.classList.replace('bg-black', 'bg-white');
-                btn.classList.replace('text-white', 'text-black');
+                btnElement.innerText = textoOriginal;
+                btnElement.classList.replace('bg-black', 'bg-white');
+                btnElement.classList.replace('text-white', 'text-black');
             }, 1000);
         }
 
@@ -208,7 +212,7 @@
                 html += `
                     <div class="flex justify-between items-center border-b border-zinc-100 pb-3">
                         <span class="text-sm font-bold uppercase tracking-wider">${item}</span>
-                        <button onclick="eliminarDelCarrito(${index})" class="text-zinc-400 hover:text-red-500 text-xs"><i class="fa-solid fa-trash"></i></button>
+                        <button onclick="eliminarDelCarrito(${index})" class="text-zinc-400 hover:text-pink-600 transition text-xs"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 `;
             });
@@ -239,4 +243,3 @@
     </script>
 </body>
 </html>
-
