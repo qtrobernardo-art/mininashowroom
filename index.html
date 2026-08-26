@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MININA | High-End Fashion</title>
-    <!-- Tailwind CSS -->
+    
+    <!-- EL FAVICON: Esto cambia el mundito por el logo de Mirna -->
+    <link rel="icon" href="logo.png" type="image/png">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Iconos FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Fuentes Premium -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Montserrat', sans-serif; background-color: #fafafa; overflow-x: hidden; }
@@ -27,16 +28,14 @@
 </head>
 <body class="text-zinc-900 antialiased h-screen overflow-hidden" id="cuerpo-sitio">
 
-    <!-- Pantalla de Entrada Minimalista (Splash Screen) -->
+    <!-- Splash Screen -->
     <div id="intro-overlay" onclick="iniciarExperiencia()" class="fixed inset-0 bg-black z-[9999] flex flex-col items-center justify-center cursor-pointer transition-all duration-1000 ease-in-out">
-        <h1 class="font-luxury text-white text-5xl md:text-7xl tracking-[0.2em] uppercase mb-6 drop-shadow-lg">Minina</h1>
+        <img src="logo.png" alt="Minina Logo" class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover mb-6 drop-shadow-2xl shadow-[0_0_30px_rgba(255,255,255,0.2)]">
         <p class="text-zinc-400 text-[10px] md:text-xs tracking-[0.4em] uppercase animate-pulse border-b border-zinc-600 pb-1">Tocá la pantalla para entrar</p>
     </div>
 
-    <!-- Contenido Principal -->
     <div id="contenido-principal" class="opacity-0 transition-opacity duration-1000 hidden">
         
-        <!-- Cintillo Superior Dinámico -->
         <div class="bg-black text-white text-center text-[9px] sm:text-[10px] tracking-[0.3em] py-2.5 uppercase font-semibold overflow-hidden whitespace-nowrap">
             <div class="animate-marquee">
                 <span class="mx-8">✨ NUEVA COLECCIÓN DISPONIBLE</span>
@@ -51,7 +50,6 @@
             </div>
         </div>
 
-        <!-- Navegación -->
         <nav class="fixed w-full z-40 top-[36px] transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.05)]">
             <div class="max-w-[1400px] mx-auto px-6 h-20 flex justify-between items-center">
                 <div class="hidden md:flex space-x-6 w-1/3">
@@ -59,8 +57,8 @@
                     <a href="https://www.tiktok.com/@minina_theo" target="_blank" class="text-lg hover:text-pink-600 transition-colors duration-300"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
                 
-                <div class="w-1/3 text-center">
-                    <h1 class="font-luxury text-4xl md:text-5xl font-black tracking-widest uppercase cursor-pointer hover:opacity-70 transition-opacity">Minina</h1>
+                <div class="w-1/3 flex justify-center">
+                    <img src="logo.png" alt="Minina" class="h-14 w-14 rounded-full object-cover cursor-pointer hover:scale-105 transition-transform">
                 </div>
 
                 <div class="w-1/3 flex justify-end items-center space-x-6">
@@ -72,19 +70,17 @@
                 </div>
             </div>
             
-            <!-- MEGA MENÚ DESLIZABLE DE CATEGORÍAS -->
             <div class="flex overflow-x-auto no-scrollbar justify-start md:justify-center space-x-8 py-3 px-6 text-[10px] font-bold uppercase tracking-widest text-zinc-600 border-t border-zinc-200/50 whitespace-nowrap bg-white/50 backdrop-blur-md">
-                <a href="#sastreria" class="hover:text-black transition">Sastrería & Office</a>
-                <a href="#fiesta" class="hover:text-black transition">Gala & Noche</a>
-                <a href="#denim" class="hover:text-black transition">Denim Bar</a>
-                <a href="#basics" class="hover:text-black transition">Basics & Bodys</a>
-                <a href="#abrigo" class="hover:text-black transition">Knitwear</a>
-                <a href="#accesorios" class="hover:text-black transition">Accesorios & Eyewear</a>
+                <a href="#sastreria" class="hover:text-black transition">Sastrería y Oficina</a>
+                <a href="#fiesta" class="hover:text-black transition">Vestidos de Fiesta</a>
+                <a href="#jeans" class="hover:text-black transition">Jeans y Camperas</a>
+                <a href="#basicos" class="hover:text-black transition">Remeras y Bodys</a>
+                <a href="#abrigos" class="hover:text-black transition">Buzos y Sweaters</a>
+                <a href="#accesorios" class="hover:text-black transition">Cintos y Accesorios</a>
                 <a href="#" class="text-pink-600 hover:text-pink-700 font-black flex items-center"><i class="fa-solid fa-fire mr-1"></i> Sale Final</a>
             </div>
         </nav>
 
-        <!-- Carrito Lateral Deslizante -->
         <div id="backdrop" onclick="toggleCarrito()" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
         <div id="drawer-carrito" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-50 transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl flex flex-col">
             <div class="px-6 py-6 border-b border-zinc-100 flex justify-between items-center bg-white/90 backdrop-blur-md">
@@ -107,7 +103,6 @@
             </div>
         </div>
 
-        <!-- Portada Cinemática -->
         <header class="relative h-screen flex items-center justify-center overflow-hidden bg-black mt-[36px]">
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 scale-105 transform hover:scale-100 transition-transform duration-[10s]" alt="Moda Premium">
@@ -116,7 +111,7 @@
             
             <div class="relative z-10 text-center px-4 animate-fade-up">
                 <p class="text-white/80 text-[10px] md:text-xs uppercase tracking-[0.5em] font-semibold mb-6">Colección Exclusiva</p>
-                <h2 class="font-luxury text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-2xl leading-none">MININA</h2>
+                <img src="logo.png" alt="Minina Logo" class="w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full object-cover mb-6 drop-shadow-2xl border-4 border-white/20">
                 <div class="w-12 h-px bg-white/50 mx-auto mb-8"></div>
                 <a href="#categorias" class="inline-block bg-white text-black text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] py-4 px-10 hover:bg-pink-600 hover:text-white transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
                     Descubrir
@@ -124,7 +119,6 @@
             </div>
         </header>
 
-        <!-- SECCIÓN DE CATEGORÍAS ESTRELLA -->
         <section id="categorias" class="max-w-[1400px] mx-auto pt-24 px-6">
             <div class="text-center mb-12 animate-fade-up">
                 <h3 class="font-luxury text-3xl md:text-4xl font-black uppercase tracking-tight mb-3">El Universo Minina</h3>
@@ -132,38 +126,33 @@
             </div>
             
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Sastrería -->
-                <div class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900">
+                <div id="sastreria" class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900 scroll-mt-32">
                     <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all">
-                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Sastrería & Office Look</h4>
+                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Sastrería y Oficina</h4>
                     </div>
                 </div>
-                <!-- Fiesta -->
-                <div class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900">
+                <div id="fiesta" class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900 scroll-mt-32">
                     <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all">
-                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Gala & Noche</h4>
+                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Vestidos de Fiesta</h4>
                     </div>
                 </div>
-                <!-- Denim -->
-                <div class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900">
+                <div id="jeans" class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900 scroll-mt-32">
                     <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all">
-                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Denim Bar</h4>
+                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Jeans y Camperas</h4>
                     </div>
                 </div>
-                <!-- Accesorios -->
-                <div class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900">
+                <div id="accesorios" class="relative h-64 md:h-80 overflow-hidden group cursor-pointer bg-zinc-900 scroll-mt-32">
                     <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=600&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all">
-                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Accesorios & Eyewear</h4>
+                        <h4 class="text-white font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-lg text-center px-2">Cintos y Accesorios</h4>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Catálogo Principal -->
         <section id="shop" class="max-w-[1400px] mx-auto py-24 px-6">
             <div class="text-center mb-16 animate-fade-up">
                 <h3 class="font-luxury text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Destacados de Temporada</h3>
@@ -171,11 +160,10 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-                <!-- Producto 1 (Basics) -->
-                <div class="group cursor-pointer flex flex-col">
+                <div id="basicos" class="group cursor-pointer flex flex-col scroll-mt-32">
                     <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
                         <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
-                        <div class="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Basics</div>
+                        <div class="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Remeras y Bodys</div>
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
                             <button onclick="agregarAlCarrito('Body Animal Print', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
                                 Añadir a la bolsa
@@ -188,7 +176,6 @@
                     </div>
                 </div>
 
-                <!-- Producto 2 (Sastrería) -->
                 <div class="group cursor-pointer flex flex-col">
                     <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
                         <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
@@ -205,11 +192,10 @@
                     </div>
                 </div>
 
-                <!-- Producto 3 (Fiesta) -->
                 <div class="group cursor-pointer flex flex-col">
                     <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
                         <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
-                        <div class="absolute top-4 left-4 bg-pink-600 text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Gala</div>
+                        <div class="absolute top-4 left-4 bg-pink-600 text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Fiesta</div>
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
                             <button onclick="agregarAlCarrito('Pantalón Elegante de Noche', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
                                 Añadir a la bolsa
@@ -222,11 +208,10 @@
                     </div>
                 </div>
 
-                <!-- Producto 4 (Knitwear / Abrigo) -->
-                <div class="group cursor-pointer flex flex-col">
+                <div id="abrigos" class="group cursor-pointer flex flex-col scroll-mt-32">
                     <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
                         <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
-                        <div class="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Knitwear</div>
+                        <div class="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Buzos y Sweaters</div>
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
                             <button onclick="agregarAlCarrito('Buzo Premium Oversize', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
                                 Añadir a la bolsa
@@ -241,7 +226,6 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="bg-black text-white pt-20 pb-10 border-t border-white/10">
             <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
                 <div>
@@ -268,25 +252,20 @@
             </div>
         </footer>
 
-        <!-- Botón WhatsApp Flotante VIP -->
         <a href="https://wa.me/543725441073" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white rounded-full w-14 h-14 flex items-center justify-center text-3xl shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-[#20bd5a] transition-all duration-300 z-40 group">
             <i class="fa-brands fa-whatsapp"></i>
             <span class="absolute right-16 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">¿Te asesoramos?</span>
         </a>
 
-        <!-- Botón para silenciar la música -->
         <button onclick="toggleMusica()" id="btn-musica" class="fixed bottom-24 right-8 bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center text-xs shadow-lg hover:bg-pink-600 transition-all duration-300 z-40">
             <i class="fa-solid fa-volume-high"></i>
         </button>
 
     </div>
 
-    <!-- Reproductor Invisible -->
     <iframe id="reproductor-musica" class="absolute w-px h-px opacity-0 pointer-events-none" src="https://www.youtube.com/embed/fUjbj3sNWuU?enablejsapi=1&autoplay=0&loop=1&playlist=fUjbj3sNWuU" frameborder="0" allow="autoplay"></iframe>
 
-    <!-- Scripts -->
     <script>
-        // 1. Lógica del Intro y Música
         let musicaSonando = false;
         
         function iniciarExperiencia() {
@@ -326,7 +305,6 @@
             }
         }
 
-        // 2. Lógica del Carrito
         let carrito = [];
         const drawer = document.getElementById('drawer-carrito');
         const backdrop = document.getElementById('backdrop');
