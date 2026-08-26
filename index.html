@@ -11,7 +11,7 @@
     <!-- Fuentes Premium -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #fafafa; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fafafa; overflow-x: hidden; }
         .font-luxury { font-family: 'Playfair Display', serif; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         
@@ -25,207 +25,258 @@
         .animate-marquee { display: inline-block; white-space: nowrap; animation: marquee 25s linear infinite; }
     </style>
 </head>
-<body class="text-zinc-900 antialiased overflow-x-hidden">
+<body class="text-zinc-900 antialiased h-screen overflow-hidden" id="cuerpo-sitio">
 
-    <!-- Cintillo Superior Dinámico -->
-    <div class="bg-black text-white text-center text-[9px] sm:text-[10px] tracking-[0.3em] py-2.5 uppercase font-semibold overflow-hidden whitespace-nowrap">
-        <div class="animate-marquee">
-            <span class="mx-8">✨ NUEVA COLECCIÓN DISPONIBLE</span>
-            <span class="mx-8">|</span>
-            <span class="mx-8">🖤 ENVÍOS A TODO EL PAÍS</span>
-            <span class="mx-8">|</span>
-            <span class="mx-8">📍 LUIS PESSANO 236, PAMPA DEL INDIO</span>
-            <span class="mx-8">|</span>
-            <span class="mx-8">✨ NUEVA COLECCIÓN DISPONIBLE</span>
-            <span class="mx-8">|</span>
-            <span class="mx-8">🖤 ENVÍOS A TODO EL PAÍS</span>
-            <span class="mx-8">|</span>
-            <span class="mx-8">📍 LUIS PESSANO 236, PAMPA DEL INDIO</span>
-        </div>
+    <!-- Pantalla de Entrada Minimalista (Splash Screen) -->
+    <div id="intro-overlay" onclick="iniciarExperiencia()" class="fixed inset-0 bg-black z-[9999] flex flex-col items-center justify-center cursor-pointer transition-all duration-1000 ease-in-out">
+        <h1 class="font-luxury text-white text-5xl md:text-7xl tracking-[0.2em] uppercase mb-6 drop-shadow-lg">Minina</h1>
+        <p class="text-zinc-400 text-[10px] md:text-xs tracking-[0.4em] uppercase animate-pulse border-b border-zinc-600 pb-1">Tocá la pantalla para entrar</p>
     </div>
 
-    <!-- Navegación Glassmorphism -->
-    <nav class="fixed w-full z-40 top-[36px] transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.05)]">
-        <div class="max-w-[1400px] mx-auto px-6 h-20 flex justify-between items-center">
-            
-            <div class="hidden md:flex space-x-6 w-1/3">
-                <a href="https://www.instagram.com/minina_showroom" target="_blank" class="text-lg hover:text-pink-600 transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-lg hover:text-pink-600 transition-colors duration-300"><i class="fa-brands fa-tiktok"></i></a>
+    <!-- Contenido Principal (Oculto inicialmente) -->
+    <div id="contenido-principal" class="opacity-0 transition-opacity duration-1000 hidden">
+        
+        <!-- Cintillo Superior Dinámico -->
+        <div class="bg-black text-white text-center text-[9px] sm:text-[10px] tracking-[0.3em] py-2.5 uppercase font-semibold overflow-hidden whitespace-nowrap">
+            <div class="animate-marquee">
+                <span class="mx-8">✨ NUEVA COLECCIÓN DISPONIBLE</span>
+                <span class="mx-8">|</span>
+                <span class="mx-8">🖤 ENVÍOS A TODO EL PAÍS</span>
+                <span class="mx-8">|</span>
+                <span class="mx-8">📍 LUIS PESSANO 236, PAMPA DEL INDIO</span>
+                <span class="mx-8">|</span>
+                <span class="mx-8">✨ NUEVA COLECCIÓN DISPONIBLE</span>
+                <span class="mx-8">|</span>
+                <span class="mx-8">🖤 ENVÍOS A TODO EL PAÍS</span>
+            </div>
+        </div>
+
+        <!-- Navegación Glassmorphism -->
+        <nav class="fixed w-full z-40 top-[36px] transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.05)]">
+            <div class="max-w-[1400px] mx-auto px-6 h-20 flex justify-between items-center">
+                
+                <div class="hidden md:flex space-x-6 w-1/3">
+                    <a href="https://www.instagram.com/minina_showroom" target="_blank" class="text-lg hover:text-pink-600 transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-lg hover:text-pink-600 transition-colors duration-300"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                
+                <div class="w-1/3 text-center">
+                    <h1 class="font-luxury text-4xl md:text-5xl font-black tracking-widest uppercase cursor-pointer hover:opacity-70 transition-opacity">Minina</h1>
+                </div>
+
+                <div class="w-1/3 flex justify-end items-center space-x-6">
+                    <a href="https://wa.me/543725441073" target="_blank" class="hidden lg:block text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-pink-600 hover:border-pink-600 transition-all">Contacto VIP</a>
+                    <button onclick="toggleCarrito()" class="relative text-2xl hover:text-pink-600 transition transform hover:scale-105">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="contador-carrito" class="absolute -top-1 -right-2 bg-pink-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-lg ring-2 ring-white">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Carrito Lateral Deslizante -->
+        <div id="backdrop" onclick="toggleCarrito()" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+        <div id="drawer-carrito" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-50 transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl flex flex-col">
+            <div class="px-6 py-6 border-b border-zinc-100 flex justify-between items-center bg-white/90 backdrop-blur-md">
+                <h2 class="font-luxury text-2xl font-black uppercase tracking-wider">Shopping Bag</h2>
+                <button onclick="toggleCarrito()" class="text-2xl hover:text-pink-600 hover:rotate-90 transition-all duration-300"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
-            <div class="w-1/3 text-center">
-                <h1 class="font-luxury text-4xl md:text-5xl font-black tracking-widest uppercase cursor-pointer hover:opacity-70 transition-opacity">Minina</h1>
+            <div id="items-carrito" class="flex-1 overflow-y-auto no-scrollbar p-6 space-y-6">
+                <div class="h-full flex flex-col items-center justify-center text-zinc-400 space-y-4">
+                    <i class="fa-solid fa-bag-shopping text-4xl opacity-20"></i>
+                    <p class="text-xs uppercase tracking-widest">Tu bolsa está vacía.</p>
+                </div>
             </div>
 
-            <div class="w-1/3 flex justify-end items-center space-x-6">
-                <a href="https://wa.me/543725441073" target="_blank" class="hidden lg:block text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-pink-600 hover:border-pink-600 transition-all">Contacto VIP</a>
-                <button onclick="toggleCarrito()" class="relative text-2xl hover:text-pink-600 transition transform hover:scale-105">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span id="contador-carrito" class="absolute -top-1 -right-2 bg-pink-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-lg ring-2 ring-white">0</span>
+            <div class="p-6 border-t border-zinc-100 bg-zinc-50">
+                <button onclick="enviarPedido()" class="group w-full bg-black text-white py-4 flex justify-center items-center hover:bg-pink-600 transition-colors duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)]">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em]">Finalizar Compra</span>
+                    <i class="fa-brands fa-whatsapp ml-3 text-lg transform group-hover:scale-125 transition-transform duration-300"></i>
                 </button>
             </div>
         </div>
-    </nav>
 
-    <!-- Carrito Lateral Deslizante -->
-    <div id="backdrop" onclick="toggleCarrito()" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
-    <div id="drawer-carrito" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-50 transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl flex flex-col">
-        <div class="px-6 py-6 border-b border-zinc-100 flex justify-between items-center bg-white/90 backdrop-blur-md">
-            <h2 class="font-luxury text-2xl font-black uppercase tracking-wider">Shopping Bag</h2>
-            <button onclick="toggleCarrito()" class="text-2xl hover:text-pink-600 hover:rotate-90 transition-all duration-300"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        
-        <div id="items-carrito" class="flex-1 overflow-y-auto no-scrollbar p-6 space-y-6">
-            <div class="h-full flex flex-col items-center justify-center text-zinc-400 space-y-4">
-                <i class="fa-solid fa-bag-shopping text-4xl opacity-20"></i>
-                <p class="text-xs uppercase tracking-widest">Tu bolsa está vacía.</p>
+        <!-- Portada Cinemática -->
+        <header class="relative h-screen flex items-center justify-center overflow-hidden bg-black mt-[36px]">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 scale-105 transform hover:scale-100 transition-transform duration-[10s]" alt="Moda Premium">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             </div>
-        </div>
+            
+            <div class="relative z-10 text-center px-4 animate-fade-up">
+                <p class="text-white/80 text-[10px] md:text-xs uppercase tracking-[0.5em] font-semibold mb-6">Colección Exclusiva</p>
+                <h2 class="font-luxury text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-2xl leading-none">MININA</h2>
+                <div class="w-12 h-px bg-white/50 mx-auto mb-8"></div>
+                <a href="#shop" class="inline-block bg-white text-black text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] py-4 px-10 hover:bg-pink-600 hover:text-white transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+                    Descubrir
+                </a>
+            </div>
+        </header>
 
-        <div class="p-6 border-t border-zinc-100 bg-zinc-50">
-            <button onclick="enviarPedido()" class="group w-full bg-black text-white py-4 flex justify-center items-center hover:bg-pink-600 transition-colors duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)]">
-                <span class="text-xs font-bold uppercase tracking-[0.2em]">Finalizar Compra</span>
-                <i class="fa-brands fa-whatsapp ml-3 text-lg transform group-hover:scale-125 transition-transform duration-300"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Portada Cinemática -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden bg-black mt-[36px]">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 scale-105 transform hover:scale-100 transition-transform duration-[10s]" alt="Moda Premium">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4 animate-fade-up">
-            <p class="text-white/80 text-[10px] md:text-xs uppercase tracking-[0.5em] font-semibold mb-6">Colección Exclusiva</p>
-            <h2 class="font-luxury text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-2xl leading-none">MININA</h2>
-            <div class="w-12 h-px bg-white/50 mx-auto mb-8"></div>
-            <a href="#shop" class="inline-block bg-white text-black text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] py-4 px-10 hover:bg-pink-600 hover:text-white transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
-                Descubrir
-            </a>
-        </div>
-    </header>
-
-    <!-- Catálogo de Alta Costura -->
-    <section id="shop" class="max-w-[1400px] mx-auto py-24 px-6">
-        <div class="text-center mb-16 animate-fade-up" style="animation-delay: 0.2s;">
-            <h3 class="font-luxury text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Shop The Look</h3>
-            <p class="text-xs text-zinc-500 uppercase tracking-[0.2em]">Selección curada para la mujer moderna</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-            <!-- Producto 1 -->
-            <div class="group cursor-pointer flex flex-col">
-                <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
-                        <button onclick="agregarAlCarrito('Body Animal Print', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
-                            Añadir a la bolsa
-                        </button>
+        <!-- Catálogo de Alta Costura -->
+        <section id="shop" class="max-w-[1400px] mx-auto py-24 px-6">
+            <div class="text-center mb-16 animate-fade-up" style="animation-delay: 0.2s;">
+                <h3 class="font-luxury text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Shop The Look</h3>
+                <p class="text-xs text-zinc-500 uppercase tracking-[0.2em]">Selección curada para la mujer moderna</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+                <!-- Producto 1 -->
+                <div class="group cursor-pointer flex flex-col">
+                    <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
+                            <button onclick="agregarAlCarrito('Body Animal Print', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
+                                Añadir a la bolsa
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Body Animal Print</h4>
+                        <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Talle Único</p>
                     </div>
                 </div>
-                <div class="text-center">
-                    <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Body Animal Print</h4>
-                    <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Talle Único</p>
-                </div>
-            </div>
 
-            <!-- Producto 2 -->
-            <div class="group cursor-pointer flex flex-col">
-                <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
-                    <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
-                        <button onclick="agregarAlCarrito('Chaleco Sastrero Gris', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
-                            Añadir a la bolsa
-                        </button>
+                <!-- Producto 2 -->
+                <div class="group cursor-pointer flex flex-col">
+                    <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
+                        <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
+                            <button onclick="agregarAlCarrito('Chaleco Sastrero Gris', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
+                                Añadir a la bolsa
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Chaleco Sastrero</h4>
+                        <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Gris Plomo</p>
                     </div>
                 </div>
-                <div class="text-center">
-                    <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Chaleco Sastrero</h4>
-                    <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Gris Plomo</p>
-                </div>
-            </div>
 
-            <!-- Producto 3 -->
-            <div class="group cursor-pointer flex flex-col">
-                <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Bestseller</div>
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
-                        <button onclick="agregarAlCarrito('Pantalón Wide Leg Negro', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
-                            Añadir a la bolsa
-                        </button>
+                <!-- Producto 3 -->
+                <div class="group cursor-pointer flex flex-col">
+                    <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute top-4 left-4 bg-black text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Bestseller</div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
+                            <button onclick="agregarAlCarrito('Pantalón Wide Leg Negro', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
+                                Añadir a la bolsa
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Wide Leg Pant</h4>
+                        <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Negro Noche</p>
                     </div>
                 </div>
-                <div class="text-center">
-                    <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Wide Leg Pant</h4>
-                    <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Negro Noche</p>
-                </div>
-            </div>
 
-            <!-- Producto 4 -->
-            <div class="group cursor-pointer flex flex-col">
-                <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
-                    <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
-                        <button onclick="agregarAlCarrito('Campera Oversize', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
-                            Añadir a la bolsa
-                        </button>
+                <!-- Producto 4 -->
+                <div class="group cursor-pointer flex flex-col">
+                    <div class="relative h-[500px] overflow-hidden mb-6 bg-zinc-100">
+                        <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
+                            <button onclick="agregarAlCarrito('Campera Oversize', this, event)" class="bg-white text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-xl translate-y-4 group-hover:translate-y-0 transform">
+                                Añadir a la bolsa
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Campera Oversize</h4>
+                        <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Edición Limitada</p>
                     </div>
                 </div>
-                <div class="text-center">
-                    <h4 class="font-luxury text-xl font-bold uppercase tracking-wide mb-2">Campera Oversize</h4>
-                    <p class="text-zinc-500 text-[10px] uppercase tracking-widest">Edición Limitada</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black text-white pt-20 pb-10 border-t border-white/10">
+            <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
+                <div>
+                    <h4 class="font-luxury text-2xl font-black uppercase tracking-widest mb-6">Minina</h4>
+                    <p class="text-xs text-zinc-400 leading-loose max-w-sm mx-auto md:mx-0">Redefiniendo la moda en Pampa del Indio. Calidad, estilo y atención exclusiva directo a tu puerta.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-zinc-500">Atención al Cliente</h4>
+                    <p class="text-xs text-zinc-300 mb-3"><i class="fa-solid fa-location-dot w-5 text-pink-600"></i> Luis Pessano 236, Chaco</p>
+                    <p class="text-xs text-zinc-300 mb-3"><i class="fa-solid fa-phone w-5 text-pink-600"></i> 3725 441073</p>
+                    <p class="text-xs text-zinc-300"><a href="mailto:minimartinez01@gmail.com" class="hover:text-pink-600 transition-colors"><i class="fa-solid fa-envelope w-5 text-pink-600"></i> minimartinez01@gmail.com</a></p>
+                </div>
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-zinc-500">Social</h4>
+                    <div class="flex space-x-5 text-xl">
+                        <a href="https://www.instagram.com/minina_showroom" class="text-white hover:text-pink-600 transform hover:-translate-y-1 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-pink-600 transform hover:-translate-y-1 transition-all"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/543725441073" class="text-white hover:text-[#25D366] transform hover:-translate-y-1 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white pt-20 pb-10 border-t border-white/10">
-        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
-            <div>
-                <h4 class="font-luxury text-2xl font-black uppercase tracking-widest mb-6">Minina</h4>
-                <p class="text-xs text-zinc-400 leading-loose max-w-sm mx-auto md:mx-0">Redefiniendo la moda en Pampa del Indio. Calidad, estilo y atención exclusiva directo a tu puerta.</p>
+            <div class="text-center text-[9px] text-zinc-600 uppercase tracking-[0.3em] border-t border-white/10 pt-8">
+                © 2026 MININA SHOWROOM.
             </div>
-            <div class="flex flex-col items-center md:items-start">
-                <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-zinc-500">Atención al Cliente</h4>
-                <p class="text-xs text-zinc-300 mb-3"><i class="fa-solid fa-location-dot w-5 text-pink-600"></i> Luis Pessano 236, Chaco</p>
-                <p class="text-xs text-zinc-300 mb-3"><i class="fa-solid fa-phone w-5 text-pink-600"></i> 3725 441073</p>
-                <p class="text-xs text-zinc-300"><i class="fa-solid fa-envelope w-5 text-pink-600"></i> info@minina.com</p>
-            </div>
-            <div class="flex flex-col items-center md:items-start">
-                <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-zinc-500">Social</h4>
-                <div class="flex space-x-5 text-xl">
-                    <a href="https://www.instagram.com/minina_showroom" class="text-white hover:text-pink-600 transform hover:-translate-y-1 transition-all"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="text-white hover:text-pink-600 transform hover:-translate-y-1 transition-all"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://wa.me/543725441073" class="text-white hover:text-[#25D366] transform hover:-translate-y-1 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center text-[9px] text-zinc-600 uppercase tracking-[0.3em] border-t border-white/10 pt-8">
-            © 2026 MININA SHOWROOM.
-        </div>
-    </footer>
+        </footer>
 
-    <!-- Reproductor Invisible de YouTube (Nova Walker Mix) -->
-    <iframe id="reproductor-musica" width="0" height="0" src="https://www.youtube.com/embed/fUjbj3sNWuU?enablejsapi=1&autoplay=0&loop=1&playlist=fUjbj3sNWuU" frameborder="0" allow="autoplay"></iframe>
+        <!-- Botón WhatsApp Flotante VIP -->
+        <a href="https://wa.me/543725441073" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white rounded-full w-14 h-14 flex items-center justify-center text-3xl shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-[#20bd5a] transition-all duration-300 z-40 group">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="absolute right-16 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">¿Te asesoramos?</span>
+        </a>
 
-    <!-- Botones Flotantes (Música y WhatsApp) -->
-    <button onclick="toggleMusica()" id="btn-musica" class="fixed bottom-24 right-8 bg-black text-white rounded-full w-14 h-14 flex items-center justify-center text-lg shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:scale-110 hover:bg-pink-600 transition-all duration-300 z-40 group">
-        <i class="fa-solid fa-music"></i>
-        <span id="texto-musica" class="absolute right-16 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Play Soundtrack</span>
-    </button>
+        <!-- Botón para silenciar la música (Opcional, por si quieren apagarla) -->
+        <button onclick="toggleMusica()" id="btn-musica" class="fixed bottom-24 right-8 bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center text-xs shadow-lg hover:bg-pink-600 transition-all duration-300 z-40">
+            <i class="fa-solid fa-volume-high"></i>
+        </button>
 
-    <a href="https://wa.me/543725441073" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white rounded-full w-14 h-14 flex items-center justify-center text-3xl shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-[#20bd5a] transition-all duration-300 z-40 group">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="absolute right-16 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-2 px-4 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">¿Te asesoramos?</span>
-    </a>
+    </div> <!-- Fin Contenido Principal -->
 
-    <!-- Scripts (Carrito y Música) -->
+    <!-- Reproductor Invisible Ajustado -->
+    <iframe id="reproductor-musica" class="absolute w-px h-px opacity-0 pointer-events-none" src="https://www.youtube.com/embed/fUjbj3sNWuU?enablejsapi=1&autoplay=0&loop=1&playlist=fUjbj3sNWuU" frameborder="0" allow="autoplay"></iframe>
+
+    <!-- Scripts (Experiencia, Carrito y Música) -->
     <script>
-        // Lógica del Carrito
+        // 1. Lógica del Intro y Música (Splash Screen)
+        let musicaSonando = false;
+        
+        function iniciarExperiencia() {
+            const overlay = document.getElementById('intro-overlay');
+            const contenido = document.getElementById('contenido-principal');
+            const iframe = document.getElementById('reproductor-musica').contentWindow;
+            const cuerpo = document.getElementById('cuerpo-sitio');
+
+            // Darle Play a la música
+            iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            musicaSonando = true;
+
+            // Transición del diseño
+            overlay.classList.add('opacity-0');
+            contenido.classList.remove('hidden');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                contenido.classList.remove('opacity-0');
+                cuerpo.classList.remove('overflow-hidden'); // Devolver el scroll
+                cuerpo.classList.remove('h-screen');
+            }, 1000);
+        }
+
+        function toggleMusica() {
+            const iframe = document.getElementById('reproductor-musica').contentWindow;
+            const icono = document.querySelector('#btn-musica i');
+            
+            if (musicaSonando) {
+                iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                icono.classList.remove('fa-volume-high');
+                icono.classList.add('fa-volume-xmark');
+                musicaSonando = false;
+            } else {
+                iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                icono.classList.remove('fa-volume-xmark');
+                icono.classList.add('fa-volume-high');
+                musicaSonando = true;
+            }
+        }
+
+        // 2. Lógica del Carrito
         let carrito = [];
         const drawer = document.getElementById('drawer-carrito');
         const backdrop = document.getElementById('backdrop');
@@ -313,28 +364,6 @@
             
             const url = "https://wa.me/543725441073?text=" + encodeURIComponent(mensaje);
             window.open(url, '_blank');
-        }
-
-        // Lógica de la Música
-        let musicaSonando = false;
-        function toggleMusica() {
-            const iframe = document.getElementById('reproductor-musica').contentWindow;
-            const icono = document.querySelector('#btn-musica i');
-            const texto = document.getElementById('texto-musica');
-            
-            if (!musicaSonando) {
-                iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                icono.classList.remove('fa-music');
-                icono.classList.add('fa-pause');
-                texto.innerText = "Pausar Soundtrack";
-                musicaSonando = true;
-            } else {
-                iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-                icono.classList.remove('fa-pause');
-                icono.classList.add('fa-music');
-                texto.innerText = "Play Soundtrack";
-                musicaSonando = false;
-            }
         }
     </script>
 </body>
